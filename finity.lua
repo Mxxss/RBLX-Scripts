@@ -462,10 +462,7 @@ function finity.new(isdark, gprojectName, thinProject)
 		category.L.Parent = category.container
 		category.hider.Parent = category.container
 
-		local function calculateSector(positon)
-      if position then
-        return position
-      end
+		local function calculateSector()
 			if thinProject then
 				return "L"
 			end
@@ -1464,8 +1461,11 @@ function finity.new(isdark, gprojectName, thinProject)
 
 				return cheat
 			end
-
-			sector.frame.Parent = category[calculateSector(position)]
+            if position ~= nil then
+            sector.frame.Parent = category[position]
+            else
+			sector.frame.Parent = category[calculateSector()]
+            end
 			sector.container.Parent = sector.frame
 			sector.title.Parent = sector.frame
 
@@ -1495,5 +1495,3 @@ function finity.new(isdark, gprojectName, thinProject)
 
 	return self2, finityData
 end
-
-return finity
