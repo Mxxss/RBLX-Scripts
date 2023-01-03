@@ -1495,3 +1495,4 @@ function finity.new(isdark, gprojectName, thinProject)
 
 	return self2, finityData
 end
+return finity
